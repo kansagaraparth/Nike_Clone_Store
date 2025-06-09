@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nike Air Max - Nike Store</title>
+    <link rel="stylesheet" href="shoe1.css">
+</head>
+<body>
+    <header>
+        <nav class="navbar">
+            <div class="logo">
+                <a href="index.html">Nike</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Kids</a></li>
+                <li><a href="#">Sale</a></li>
+                <li><a href="signin.html">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="product-detail">
+            <div class="product-images">
+                <img src="shoe1.jpg" alt="Nike Air Max">
+                <div class="thumbnail-images">
+                    <a href="shoe1.jpg"><img src="shoe1.jpg" alt="View 1"></a>
+                    <a href="shoe1-2.jpg"><img src="shoe1-2.jpg" alt="View 2"></a>
+                    <a href="shoe1-3.jpg"><img src="shoe1-3.jpg" alt="View 3"></a>
+                </div>
+            </div>
+            <div class="product-info">
+                <h1>Nike Air Max</h1>
+                <p class="price">₹12,999</p>
+                <p class="product-description">Air Max shoes are identified by their midsoles incorporating flexible urethane pouches filled with pressurized gas, visible from the exterior of the shoe and intended to provide cushioning to the underfoot.</p>
+                <div class="product-options">
+                    <div>
+                        <label>Size:</label>
+                        <select>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                        </select>
+                    </div>
+                    <div>
+                        <label>Color:</label>
+                        <select>
+                            <option>Red</option>
+                            <option>Blue</option>
+                            <option>Black</option>
+                        </select>
+                    </div>
+                </div>
+                <a href="order.html" class="add-to-cart">Order Now</a>
+                <div class="size-table">
+                    <h2>Size Chart</h2>
+                    <table>
+                        <tr>
+                            <th>US</th>
+                            <th>UK</th>
+                            <th>India</th>
+                            <th>EU</th>
+                        </tr>
+                        <tr>
+                            <td>6</td>
+                            <td>5.5</td>
+                            <td>5.5</td>
+                            <td>38.5</td>
+                        </tr>
+                        <tr>
+                            <td>7</td>
+                            <td>6.5</td>
+                            <td>6.5</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>8</td>
+                            <td>7.5</td>
+                            <td>7.5</td>
+                            <td>41</td>
+                        </tr>
+                        <tr>
+                            <td>9</td>
+                            <td>8.5</td>
+                            <td>8.5</td>
+                            <td>42.5</td>
+                        </tr>
+                        <tr>
+                            <td>10</td>
+                            <td>9.5</td>
+                            <td>9.5</td>
+                            <td>44</td>
+                        </tr>
+                        <tr>
+                            <td>11</td>
+                            <td>10.5</td>
+                            <td>10.5</td>
+                            <td>45</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>Rate Us & Leave a Review</h3>
+                <form id="review-form">
+                    <div class="rate-us">
+                        <span>Rate us:</span>
+                        <label><input type="radio" name="rating" value="1"> 1 Star</label>
+                        <label><input type="radio" name="rating" value="2"> 2 Stars</label>
+                        <label><input type="radio" name="rating" value="3"> 3 Stars</label>
+                        <label><input type="radio" name="rating" value="4"> 4 Stars</label>
+                        <label><input type="radio" name="rating" value="5"> 5 Stars</label>
+                    </div>
+                    <div class="review-input">
+                        <label>Your Review:</label>
+                        <textarea id="review" name="review" rows="3" placeholder="Write your review here..." required></textarea>
+                    </div>
+                    <button type="submit">Submit Review</button>
+                </form>
+            </div>
+        </div>
+    </footer>
+    <script>
+        document.getElementById('review-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Review submitted successfully!');
+        });
+    </script>
+</body>
+</html>

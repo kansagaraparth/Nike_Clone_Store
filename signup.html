@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up</title>
+    <link rel="stylesheet" href="signup.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <main>
+        <div class="container">
+            <div class="image-container">
+                <img src="glitch.png" alt="Sign In Image">
+            </div>
+            <div class="signin-container">
+                <h2>Sign Up</h2>
+                <form onsubmit="handleSignup(event)">
+                    <label for="gmail">Gmail:</label>
+                    <input type="email" id="gmail" name="gmail" required>
+                    <label for="phone">Phone:</label>
+                    <input type="number" id="phone" name="phone" required>
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" name="password" required>
+                    <label for="confirm_password">Confirm Password:</label>
+                    <input type="password" id="confirm_password" name="confirm_password" required>
+                    <button type="submit">Sign Up</button>
+                </form>
+            </div>
+        </div>
+    </main>
+</body>
+</html>
+<script>
+    function handleSignup(event) {
+        event.preventDefault();
+        
+        let gmail = document.getElementById("gmail").value;
+        let phone = document.getElementById("phone").value;
+        let password = document.getElementById("password").value;
+        let confirm_password = document.getElementById("confirm_password").value;
+
+        // Validate Gmail
+        let x1 = gmail.trimStart();
+        let x2 = x1.trimEnd();
+        for(let i=0; i<x2.length; i++){
+            if(x2.charAt(i)==" "){
+                alert("White space not allowed in between email.");
+                return false;
+            }
+        }
+        let positionat = -1;
+        let positiondot = -1;
+        for(let i=0; i<x2.length; i++){
+            if(x2.charAt(i)=="@"){
+                positionat = i;
+            }
+            if(x2.charAt(i)=="."){
+                positiondot = i;
+            }
+        }
+        if(positionat>positiondot){
+            alert("@ should be ahead of dot");
+            return false;
+        }
+        if(positionat==-1 || positiondot==-1){
+            alert("There should be @ and .");
+            return false;
+        }
+        if(positiondot-positionat<2){
+            alert("There should be a provider name");
+            return false;
+        }
+
+        // Validate Phone Number
+        if(phone.length!=10){
+            alert("Number should be of 10 digits.");
+            return false;
+        }
+        for(let i=0; i<10; i++){
+            if(phone.charCodeAt(i)<48 || phone.charCodeAt(i)>57){
+                alert("Please enter a valid number.");
+                return false;
+            }
+        }
+
+        // Validate Password
+        if(password.length < 8){
+            alert("Password must be at least 8 characters long");
+            return false;
+        }
+        if(password!=confirm_password){
+            alert("Password and Confirm Password do not match");
+            return false;
+        }
+        // If all validations pass
+        alert("Sign up successful!");
+        window.location.href = "index.html";
+        return true;
+    }
+</script>

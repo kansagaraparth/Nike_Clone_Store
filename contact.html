@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact Us - Nike Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">Nike</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Kids</a></li>
+                <li><a href="#">Sale</a></li>
+                <li><a href="signin.html">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Contact Us</h1>
+            <form id="contact-form" onsubmit="return validate_form()">
+                <div>
+                    <label>First Name:</label>
+                    <input type="text" id="fname" required>
+                </div>
+                
+                <div>
+                    <label>Last Name:</label>
+                    <input type="text" id="lname" required>
+                </div>
+
+                <div>
+                    <label>Phone Number:</label>
+                    <input type="text" id="number" required>
+                </div>
+                
+                <div>
+                    <label>Email:</label>
+                    <input type="email" id="email" required>
+                </div>
+                
+                <div>
+                    <label>Subject:</label>
+                    <input type="text" id="subject" required>
+                </div>
+                
+                <div>
+                    <label>Message:</label>
+                    <textarea id="message" rows="5" required></textarea>
+                </div>
+                
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2024 Nike Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function validate_form(){
+            let fname = document.getElementById("fname").value;
+            let lname = document.getElementById("lname").value;
+            let number = document.getElementById("number").value;
+            let email = document.getElementById("email").value;
+            let subject = document.getElementById("subject").value;
+            let message = document.getElementById("message").value;
+
+            // Validate First Name
+            for(let i=0; i<fname.length; i++){
+                if(fname.charCodeAt(i)<65 || fname.charCodeAt(i)>90 && fname.charCodeAt(i)<97 || fname.charCodeAt(i)>122){
+                    alert("Please enter a valid first name");
+                    return false;
+                }
+            }
+
+            // Validate Last Name
+            for(let i=0; i<lname.length; i++){
+                if(lname.charCodeAt(i)<65 || lname.charCodeAt(i)>90 && lname.charCodeAt(i)<97 || lname.charCodeAt(i)>122){
+                    alert("Please enter a valid last name");
+                    return false;
+                }
+            }
+
+            // Validate Phone Number
+            if(number.length!=10){
+                alert("Number should be of 10 digits.");
+                return false;
+            }
+            for(let i=0; i<10; i++){
+                if(number.charCodeAt(i)<48 || number.charCodeAt(i)>57){
+                    alert("Please enter a valid number.");
+                    return false;
+                }
+            }
+
+            // Validate Email
+            let x1 = email.trimStart();
+            let x2 = x1.trimEnd();
+            for(let i=0; i<x2.length; i++){
+                if(x2.charAt(i)==" "){
+                    alert("White space not allowed in between email.");
+                    return false;
+                }
+            }
+            let positionat = -1;
+            let positiondot = -1;
+            for(let i=0; i<x2.length; i++){
+                if(x2.charAt(i)=="@"){
+                    positionat = i;
+                }
+                if(x2.charAt(i)=="."){
+                    positiondot = i;
+                }
+            }
+            if(positionat>positiondot){
+                alert("@ should be ahead of dot");
+                return false;
+            }
+            if(positionat==-1 || positiondot==-1){
+                alert("There should be @ and .");
+                return false;
+            }
+            if(positiondot-positionat<2){
+                alert("There should be a provider name");
+                return false;
+            }
+
+            // Validate Subject
+            if(subject.length < 5){
+                alert("Subject must be at least 5 characters long");
+                return false;
+            }
+
+            // Validate Message
+            if(message.length < 20){
+                alert("Message must be at least 20 characters long");
+                return false;
+            }
+
+            // If all validations pass
+            alert("Thank you for your message! We will get back to you soon.");
+            window.location.href = "index.html";
+            return true;
+        }
+    </script>
+</body>
+</html>

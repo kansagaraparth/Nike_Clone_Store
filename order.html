@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order - Nike Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">Nike</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Kids</a></li>
+                <li><a href="#">Sale</a></li>
+                <li><a href="signin.html">Sign In</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Order Summary</h1>
+            <div class="product">
+                <img src="shoe1.jpg" alt="Nike Air Max" style="width: 100px; height: auto;">
+                <span>
+                    <h2>Nike Air Max</h2>
+                    <p>₹12,999</p>
+                </span>
+            </div>
+            <form id="order-form">
+                <h2 style="text-align: center;">Shipping Information</h2>
+                <label>Full Name:</label>
+                <input type="text" required>
+                
+                <label>Address:</label>
+                <input type="text" required>
+                
+                <label>City:</label>
+                <input type="text" required>
+                
+                <label>State:</label>
+                <input type="text" required>
+                
+                <label>Pincode:</label>
+                <input type="text" required>
+
+                <h2>Payment Information</h2>
+                <label>Card Number:</label>
+                <input type="text" required>
+                
+                <label>Expiry Date:</label>
+                <input type="text" required>
+                
+                <label>CVV:</label>
+                <input type="text" required>
+
+                <button type="submit">Place Order</button>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 Nike Store. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
+<script>
+    document.getElementById('order-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        alert('Order Placed successfully!');
+        window.location.href = "index.html";
+        return true;
+    });
+</script>

@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In - Nike Store</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">Nike</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="#">Men</a></li>
+                <li><a href="#">Women</a></li>
+                <li><a href="#">Kids</a></li>
+                <li><a href="#">Sale</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="container">
+            <h1>Sign In</h1>
+            <form onsubmit="return validate_form(event)">
+                <div>
+                    <label>Email:</label>
+                    <input type="text" id="email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label>Password:</label>
+                    <input type="password" id="password" required>
+                </div>
+                
+                <button type="submit">Sign In</button>
+                <p style="text-align: center; margin-top: 10px;">
+                    Don't have an account? <a href="signup.html">Sign Up</a>
+                </p>
+            </form>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <p>&copy; 2025 Nike Store. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        function validate_form(event){
+            event.preventDefault();
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+
+            // Validate Email
+            let x1 = email.trimStart();
+            let x2 = x1.trimEnd();
+            for(let i=0; i<x2.length; i++){
+                if(x2.charAt(i)==" "){
+                    alert("White space not allowed in between email.");
+                    return false;
+                }
+            }
+            let positionat = -1;
+            let positiondot = -1;
+            for(let i=0; i<x2.length; i++){
+                if(x2.charAt(i)=="@"){
+                    positionat = i;
+                }
+                if(x2.charAt(i)=="."){
+                    positiondot = i;
+                }
+            }
+            if(positionat>positiondot){
+                alert("@ should be ahead of dot");
+                return false;
+            }
+            if(positionat==-1 || positiondot==-1){
+                alert("There should be @ and .");
+                return false;
+            }
+            if(positiondot-positionat<2){
+                alert("There should be a provider name");
+                return false;
+            }
+
+            // Validate Password
+            if(password.length < 8){
+                alert("Password must be at least 8 characters long");
+                return false;
+            }
+
+            // If all validations pass
+            alert("Sign in successful!");
+            window.location.href = "index.html";
+            return true;
+        }
+    </script>
+</body>
+</html>
